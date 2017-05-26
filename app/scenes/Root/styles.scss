@@ -1,0 +1,48 @@
+@import "../../appearance/main";
+@import "../../appearance/abstract";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(
+    to right,
+    $background-color-gradient-a,
+    $background-color-gradient-b
+  );
+  color: $text-color-default;
+  font-family: $default-font;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $title-font;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button,
+input,
+textarea {
+  font-family: $default-font;
+  outline: none;
+}
+
+input,
+textarea {
+  font-size: 1.25rem;
+}
+
+button {
+  cursor: pointer;
+}

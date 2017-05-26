@@ -1,0 +1,15 @@
+@import "../../appearance/abstract";
+
+.home-hero {
+  color: $text-color-inverse;
+  padding: 3rem;
+  text-align: center;
+
+  &__title {
+    margin: 1.7rem 0;
+  }
+
+  &__subtitle {
+    font-weight: 100;
+  }
+}
