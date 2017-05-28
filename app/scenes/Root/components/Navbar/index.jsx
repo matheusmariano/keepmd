@@ -29,13 +29,6 @@ class Navbar extends Component {
           >
             <h1 className="brand__text">Keepmd</h1>
           </Link>
-          <button
-            className="navbar__toggle-button hidden-md-up"
-            onClick={() => this.toggleMenu()}
-            type="button"
-          >
-            <i className="fa fa-bars" />
-          </button>
         </div>
       </header>
     );

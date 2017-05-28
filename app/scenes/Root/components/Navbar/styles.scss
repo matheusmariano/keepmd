@@ -2,7 +2,9 @@
 
 .navbar {
   align-items: center;
+  display: flex;
   justify-content: space-between;
+  padding: 1rem;
 
   &__fixed {
     display: flex;
@@ -15,13 +17,6 @@
     color: $text-color-inverse;
     font-size: 1.3rem;
     padding: 0;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .navbar {
-    display: flex;
-    padding: 1rem;
   }
 }
 
