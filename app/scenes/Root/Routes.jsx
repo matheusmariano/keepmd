@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 export default function Routes() {
   return (
@@ -10,7 +10,9 @@ export default function Routes() {
         exact path="/"
       />
       <Route
-        component={require('../NotFound/').default}
+        render={() => (
+          <Redirect to="/" />
+        )}
         path="*"
       />
       {/* eslint-enable */}
