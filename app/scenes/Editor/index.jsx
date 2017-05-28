@@ -6,6 +6,7 @@ import AceEditor from 'react-ace';
 import Markdown from 'react-markdown';
 import Highlight from 'react-highlight';
 import R from 'ramda';
+import debounce from 'debounce';
 import 'brace/mode/markdown';
 import 'brace/theme/xcode';
 import 'highlight.js/styles/atom-one-light.css';
@@ -37,11 +38,11 @@ class EditorScene extends Component {
 
   setEditorContent(editorContent) {
     this.setState({ editorContent });
-    this.props.updateEditorContent(editorContent);
   }
 
   editorDidChange(value) {
     this.setEditorContent(value);
+    this.props.updateEditorContent(value);
   }
 
   formatMessage(props) {
@@ -53,7 +54,7 @@ class EditorScene extends Component {
       <div className="editor-page">
         <AceEditor
           height="calc(100vh - 3.45rem)"
-          onChange={value => this.editorDidChange(value)}
+          onChange={value => debounce(this.editorDidChange(value), 1000)}
           mode="markdown"
           showPrintMargin={false}
           tabSize={2}
@@ -107,8 +108,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    updateEditorContent: editorContent =>
-      dispatch(EditorActions.editorUpdateContent(editorContent)),
+    updateEditorContent: debounce(
+      editorContent => dispatch(EditorActions.editorUpdateContent(editorContent)),
+      500,
+    ),
   };
 }
 
