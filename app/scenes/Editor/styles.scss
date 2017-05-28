@@ -1,0 +1,48 @@
+@import "../../appearance/abstract";
+
+.editor-page {
+  display: flex;
+
+  &__preview {
+    background-color: $background-color-default;
+    border-left: {
+      color: $lightgray;
+      style: solid;
+      width: 1px;
+    }
+    height: calc(100vh - 3.45rem);
+    overflow: scroll;
+    width: 50%;
+  }
+}
+
+.editor-preview {
+  padding: 1rem;
+
+  &__blockquote {
+    border-left: solid 3px $primary-color;
+    font-family: $serif-font;
+    font-style: italic;
+    margin: 0;
+    padding: {
+      bottom: 1rem;
+      left: calc(2.5rem - 3px);
+      right: 2.5rem;
+      top: 1rem;
+    }
+
+    & p {
+      margin: 0;
+    }
+  }
+
+  &__code {
+    background-color: $cloud;
+    border-radius: 3px;
+    padding: 0 .3rem;
+  }
+
+  &__code-block {
+    border-radius: 3px;
+  }
+}

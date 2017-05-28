@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
-import RS from '../../../../lib/reactsauce';
 import './styles.scss';
 
 class Navbar extends Component {
@@ -29,12 +27,7 @@ class Navbar extends Component {
             className="brand"
             to="/"
           >
-            <img
-              alt="React Fission"
-              className="brand__icon"
-              src="images/logo.svg"
-            />
-            <h1 className="brand__text">React Fission</h1>
+            <h1 className="brand__text">Keepmd</h1>
           </Link>
           <button
             className="navbar__toggle-button hidden-md-up"
@@ -44,52 +37,6 @@ class Navbar extends Component {
             <i className="fa fa-bars" />
           </button>
         </div>
-        <nav
-          className={
-            RS.classes({
-              navbar__menu: true,
-              'navbar__menu--open': this.state.menuSwitch === true,
-              'navbar__menu--close': this.state.menuSwitch === false,
-            })
-          }
-        >
-          <ul className="main-menu">
-            <li className="main-menu__item">
-              <Link
-                className="main-menu__link"
-                to="/"
-              >
-                <FormattedMessage id="home.menu_title" />
-              </Link>
-            </li>
-            <li className="main-menu__item">
-              <Link
-                className="main-menu__link"
-                to="todos"
-              >
-                <FormattedMessage id="todos.menu_title" />
-              </Link>
-            </li>
-            <li className="main-menu__item">
-              <Link
-                className="main-menu__link"
-                to="profile"
-              >
-                <FormattedMessage id="profile.menu_title" />
-              </Link>
-            </li>
-            <li className="main-menu__item">
-              <a
-                className="main-menu__link"
-                href="https://github.com/matheusmariano/react-fission"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <span>GitHub</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
       </header>
     );
   }
