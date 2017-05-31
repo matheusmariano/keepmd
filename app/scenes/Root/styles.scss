@@ -6,11 +6,7 @@
 }
 
 body {
-  background: linear-gradient(
-    to right,
-    $background-color-gradient-a,
-    $background-color-gradient-b
-  );
+  background-color: $background-color-primary;
   color: $text-color-default;
   font-family: $default-font;
   margin: 0;
