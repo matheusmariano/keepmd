@@ -6,6 +6,9 @@
   "repository": "https://https://github.com/matheusmariano/react-fission",
   "author": "Matheus Mariano <vmatheus.mariano@gmail.com>",
   "license": "MIT",
+  "engines":{
+    "node": "6.11.0"
+  },
   "devDependencies": {
     "concurrently": "^3.4.0",
     "husky": "^0.12.0",
