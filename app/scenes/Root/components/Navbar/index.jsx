@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import './styles.scss';
 
 class Navbar extends Component {
+  static intl(id) {
+    return `root.components.navbar.${id}`;
+  }
+
   constructor(props) {
     super(props);
 
@@ -30,6 +35,20 @@ class Navbar extends Component {
             <h1 className="brand__text">Keepmd</h1>
           </Link>
         </div>
+        <nav>
+          <ul className="navbar-menu">
+            <li className="navbar-menu__item">
+              <a
+                className="menu-button-text"
+                href="https://github.com/matheusmariano/keepmd"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <FormattedMessage id={Navbar.intl('about')} />
+              </a>
+            </li>
+          </ul>
+        </nav>
       </header>
     );
   }

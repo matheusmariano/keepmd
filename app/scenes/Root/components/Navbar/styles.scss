@@ -39,3 +39,32 @@
     margin-right: .5rem;
   }
 }
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    margin: 0 1rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.menu-button-text {
+  color: $text-color-inverse-translucid;
+  font-weight: $default-font-weight-bold;
+
+  &:hover {
+    color: $text-color-inverse;
+    text-decoration: none;
+  }
+}

@@ -2,7 +2,11 @@
   "editor": {
     "page_title": "Keepmd - Markdown Editor"
   },
-  "not_found": {
-    "title": "Page Not Found"
+  "root": {
+    "components": {
+      "navbar": {
+        "about": "About"
+      }
+    }
   }
 }
