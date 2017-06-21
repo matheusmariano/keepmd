@@ -5,7 +5,7 @@
   "root": {
     "components": {
       "navbar": {
-        "about": "About"
+        "about": "Sobre"
       }
     }
   }
