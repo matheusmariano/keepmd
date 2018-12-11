@@ -1,0 +1,9 @@
+{
+  "modules": true,
+  "plugins": {
+    "postcss-modules": {
+      "globalModulePaths": ["node_modules", "src/theme"],
+      "generateScopedName": "[name]-[local]-[hash:base64:6]"
+    }
+  }
+}

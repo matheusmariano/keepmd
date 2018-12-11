@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: yarn start --port ${DOCKER_WEB_PORT}
+    volumes:
+      - .:/home/app
+      - ~/.ssh:/home/.ssh
+    ports:
+      - ${DOCKER_WEB_PORT}:${DOCKER_WEB_PORT}
+      - 30880:30880
