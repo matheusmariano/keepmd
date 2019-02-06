@@ -1,9 +1,8 @@
 import React from 'react';
+import Navbar from './components/navbar';
 
 const HomeScreen = () => (
-  <div>
-    <p>Keepmd - Markdown Editor</p>
-  </div>
+  <Navbar />
 );
 
 export default HomeScreen;
