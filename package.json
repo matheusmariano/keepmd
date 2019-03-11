@@ -40,6 +40,8 @@
     "react-markdown": "^4.0.6"
   },
   "scripts": {
+    "build": "yarn parcel build src/index.html",
+    "now-build": "yarn build",
     "start": "yarn parcel --hmr-port=30880 src/index.html",
     "validate": "yarn eslint --ext=js,jsx src/**/*.js?"
   }
