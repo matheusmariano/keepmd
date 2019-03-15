@@ -33,9 +33,9 @@
     "dot-object": "^1.7.1",
     "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
-    "react": "^16.6.3",
+    "react": "^16.8.4",
     "react-ace": "^6.4.0",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.8.4",
     "react-intl": "^2.8.0",
     "react-markdown": "^4.0.6"
   },
