@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import AceEditor from 'react-ace';
 import Markdown from 'react-markdown';
+import localforage from 'localforage';
+import debounce from 'debounce';
 import 'brace/mode/markdown';
 import 'brace/theme/tomorrow';
+
+const storeContentLocally = debounce((content) => {
+  localforage.setItem('content', content);
+}, 1000);
+
+const retrieveContentLocally = () => localforage.getItem('content');
 
 const Editor = ({ className }) => {
   const [content, setContent] = useState('');
 
-  const contentDidChange = (value) => {
-    setContent(value);
+  useEffect(() => {
+    retrieveContentLocally().then((retrievedContent) => {
+      setContent(retrievedContent);
+    });
+  }, []);
+
+  const contentDidChange = (updatedContent) => {
+    setContent(updatedContent);
+    storeContentLocally(updatedContent);
   };
 
   return (

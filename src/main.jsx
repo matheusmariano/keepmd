@@ -4,6 +4,7 @@ import { IntlProvider } from 'react-intl';
 import HomeScreen from './screens/home';
 import { locale, messages } from './intl';
 import './intl/add-locales';
+import './services';
 
 const Main = () => (
   <IntlProvider
