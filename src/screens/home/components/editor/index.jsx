@@ -18,7 +18,9 @@ const Editor = ({ className }) => {
 
   useEffect(() => {
     retrieveContentLocally().then((retrievedContent) => {
-      setContent(retrievedContent);
+      if (retrievedContent) {
+        setContent(retrievedContent);
+      }
     });
   }, []);
 
