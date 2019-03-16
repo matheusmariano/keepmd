@@ -2,8 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import HomeScreen from './screens/home';
-import { locale, messages } from './intl';
-import './intl/add-locales';
+import { locale, messages } from './services/intl';
 import './services';
 
 const Main = () => (
