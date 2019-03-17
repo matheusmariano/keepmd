@@ -1,7 +1,11 @@
 $sizeUnit: rem;
-$marginKey: 'has-margin';
-$paddingKey: 'has-padding';
 $separator: '-';
+
+$spacers: (
+  ('has-margin', 'margin'),
+  ('has-padding', 'padding')
+);
+
 $sizes: (
   ('none', 0),
   ('xxs', 0.125),
@@ -12,11 +16,17 @@ $sizes: (
   ('xl', 4),
   ('xxl', 8),
 );
+
 $positions: (
   'top',
   'right',
   'bottom',
   'left'
+);
+
+$axes: (
+  ('x', ('left', 'right')),
+  ('y', ('top', 'bottom'))
 );
 
 @function sizeValue($key, $value) {
@@ -26,18 +36,30 @@ $positions: (
 @each $size in $sizes {
   $sizeKey: nth($size, 1);
   $sizeValue: nth($size, 2);
-  .#{$marginKey}#{$separator}#{$sizeKey} {
-    margin: sizeValue($sizeKey, $sizeValue);
-  }
-  .#{$paddingKey}#{$separator}#{$sizeKey} {
-    padding: sizeValue($sizeKey, $sizeValue);
-  }
-  @each $position in $positions {
-    .#{$marginKey}#{$separator}#{$position}#{$separator}#{$sizeKey} {
-      margin-#{$position}: sizeValue($sizeKey, $sizeValue);
+
+  @each $spacer in $spacers {
+    $spacerKey: nth($spacer, 1);
+    $spacerProperty: nth($spacer, 2);
+
+    .#{$spacerKey}#{$separator}#{$sizeKey} {
+      #{$spacerProperty}: sizeValue($sizeKey, $sizeValue);
     }
-    .#{$paddingKey}#{$separator}#{$position}#{$separator}#{$sizeKey} {
-      padding-#{$position}: sizeValue($sizeKey, $sizeValue);
+
+    @each $position in $positions {
+      .#{$spacerKey}#{$separator}#{$position}#{$separator}#{$sizeKey} {
+        #{$spacerProperty}-#{$position}: sizeValue($sizeKey, $sizeValue);
+      }
+    }
+
+    @each $axis in $axes {
+      $positions: nth($axis, 2);
+      $axis: nth($axis, 1);
+
+      @each $position in $positions {
+        .#{$spacerKey}#{$separator}#{$axis}#{$separator}#{$sizeKey} {
+          #{$spacerProperty}-#{$position}: sizeValue($sizeKey, $sizeValue);
+        }
+      }
     }
   }
 }

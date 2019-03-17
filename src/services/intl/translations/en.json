@@ -3,6 +3,10 @@
     "navigation": {
       "name": "Main Navigation",
       "menu": "Menu"
+    },
+    "editor": {
+      "markdown": "Markdown",
+      "preview": "Preview"
     }
   }
 }

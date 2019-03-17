@@ -4,8 +4,11 @@ import AceEditor from 'react-ace';
 import Markdown from 'react-markdown';
 import localforage from 'localforage';
 import debounce from 'debounce';
+import { FormattedMessage } from 'react-intl';
 import 'brace/mode/markdown';
 import 'brace/theme/tomorrow';
+import HeaderLabel from './components/header-label';
+import './style.scss';
 
 const storeContentLocally = debounce((content) => {
   localforage.setItem('content', content);
@@ -31,10 +34,23 @@ const Editor = ({ className }) => {
 
   return (
     <div className={`columns is-gapless ${className}`}>
-      <div className="column is-half">
+      <section
+        aria-labelledby="editor-section-label"
+        className="column is-half"
+      >
+        <HeaderLabel
+          aria-hidden
+          styleName="label"
+        >
+          <FormattedMessage id="home.editor.markdown">
+            {label => (
+              <span id="editor-section-label">{label}</span>
+            )}
+          </FormattedMessage>
+        </HeaderLabel>
         <AceEditor
           width="100%"
-          height="100%"
+          height="calc(100vh - 5rem)"
           mode="markdown"
           onChange={contentDidChange}
           showPrintMargin={false}
@@ -42,12 +58,26 @@ const Editor = ({ className }) => {
           theme="tomorrow"
           value={content}
         />
-      </div>
-      <div className="column is-half">
+      </section>
+      <section
+        aria-labelledby="preview-section-label"
+        className="column is-half"
+        styleName="preview"
+      >
+        <HeaderLabel
+          aria-hidden
+          styleName="label"
+        >
+          <FormattedMessage id="home.editor.preview">
+            {label => (
+              <span id="preview-section-label">{label}</span>
+            )}
+          </FormattedMessage>
+        </HeaderLabel>
         <div className="content has-margin-lg">
           <Markdown source={content} />
         </div>
-      </div>
+      </section>
     </div>
   );
 };

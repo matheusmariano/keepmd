@@ -1,0 +1,11 @@
+@import "../../../../theme/variables.scss";
+
+$border: 1px solid $grey-lighter;
+
+.preview {
+  border-left: $border;
+}
+
+.label {
+  border-bottom: $border;
+}
