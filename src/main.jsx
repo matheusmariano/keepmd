@@ -1,8 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { IntlProvider } from 'react-intl';
+import { Helmet } from 'react-helmet';
 import HomeScreen from './screens/home';
 import { locale, messages } from './services/intl';
+import { InjectIntlContext } from './services/intl/context';
 import './services';
 
 const Main = () => (
@@ -10,7 +12,10 @@ const Main = () => (
     locale={locale}
     messages={messages[locale]}
   >
-    <HomeScreen />
+    <InjectIntlContext>
+      <Helmet htmlAttributes={{ lang: locale }} />
+      <HomeScreen />
+    </InjectIntlContext>
   </IntlProvider>
 );
 

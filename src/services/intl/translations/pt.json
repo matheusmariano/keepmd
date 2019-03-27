@@ -1,5 +1,7 @@
 {
   "home": {
+    "title": "Keepmd - Editor Markdown",
+    "description": "Um editor Markdown web ultraleve.",
     "navigation": {
       "name": "Navegação Principal",
       "menu": "Menu"
