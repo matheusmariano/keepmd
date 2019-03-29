@@ -12,7 +12,7 @@ const HeaderLabel = ({ className, children, ...props }) => (
     <h1
       className="
         is-uppercase is-size-7
-        has-text-weight-semibold has-text-grey-light
+        has-text-weight-semibold has-text-dark
       "
     >
       {children}

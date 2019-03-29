@@ -18,14 +18,14 @@ const Navbar = () => {
         >
           <div className="navbar-brand">
             <div className="navbar-item">
-              Keepmd
+              <strong className="has-text-secondary">Keepmd</strong>
             </div>
             <FormattedMessage id="home.navigation.menu">
               {menu => (
                 <button
                   aria-label={menu}
                   aria-expanded={expanded}
-                  className="button is-primary navbar-burger burger"
+                  className="button is-primary has-text-secondary navbar-burger burger"
                   onClick={toggle}
                   type="button"
                 >
@@ -45,11 +45,14 @@ const Navbar = () => {
           >
             <div className="navbar-end">
               <a
+                aria-label="GitHub"
                 className="navbar-item"
                 href="https://github.com/matheusmariano/keepmd"
                 target="__blank"
               >
-                GitHub
+                <span className="icon has-text-secondary">
+                  <i className="fab fa-github" />
+                </span>
               </a>
             </div>
           </div>
